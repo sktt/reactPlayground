@@ -6,7 +6,7 @@ module.exports = {
     'webpack-dev-server/client?http://localhost:3000'
   ],
   output: {
-    path: __dirname + '/dist/js',
+    path: __dirname + '/public/js',
     publicPath: 'http://localhost:8090/',
     filename: 'bundle.js'
   },

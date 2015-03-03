@@ -13,8 +13,7 @@ indexHtml = indexHtml
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use('/node-static', express.static('../public'));
-app.use(express.static('./images'));
+app.use(express.static('./client/public'));
 
 // no serverside rendering here O:::
 app.get('/*', function(req, res) {
