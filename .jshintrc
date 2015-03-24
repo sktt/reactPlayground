@@ -3,8 +3,8 @@
   "immed": true,
   "indent": 2,
   "latedef": true,
-  "newcap": true,
-  "quotmark": "single",
+  "newcap": false,
+  "quotmark": false,
 
   "esnext": true,
   "globalstrict": true,

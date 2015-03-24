@@ -12,7 +12,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.js(|x)$/, loaders: ['react-hot', 'jsx-loader?harmony'] },
+      { test: /\.jsx?$/, loaders: ['react-hot', 'babel-loader'] },
       { test: /\.scss$/, exclude: /\.useable\.scss$/, loader: 'style!css!sass?outputStyle=expanded' },
       { test: /\.useable\.scss$/, loader: 'style/useable!css!sass?outputStyle=expanded' }
     ]

@@ -1,14 +1,13 @@
 'use strict';
 
-var _ = require('lodash');
+import _ from 'lodash';
 
-var React = require('react');
-var Router = require('react-router');
-var {DefaultRoute, Route, Link, RouteHandler} = Router;
+import React from 'react';
+import Router, {DefaultRoute, Route, Link, RouteHandler} from 'react-router';
 
 (window !== window.top ? window.top : window).React = React;
-
-var App = React.createClass({
+import style from './views/pages/styles/shared.scss';
+let App = React.createClass({
   render() {
     return (
       <div className="page_wrapper">
@@ -20,16 +19,22 @@ var App = React.createClass({
   }
 });
 
-var routes = (
+let routes = (
   <Route
     handler={App}>
     <DefaultRoute
       name="home"
-      handler={require('./pages/main.jsx')}/>
+      handler={require('./views/pages/Main.jsx')}/>
+    <Route
+      name="ExCheckboxGroup"
+      handler={require('./views/pages/ExCheckboxGroup.jsx')}/>
+    <Route
+      name="ExDropdown"
+      handler={require('./views/pages/ExDropdown.jsx')}/>
   </Route>
 );
 
 Router.run(routes, Router.HistoryLocation, (Handler, state) => {
-  var params = state.params;
+  let params = state.params;
   React.render(<Handler params={params}/>, document.body);
 });
