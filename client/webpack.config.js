@@ -1,7 +1,7 @@
 module.exports = {
   cache: true,
   entry: [
-    __dirname + '/app.js',
+    __dirname + '/app.jsx',
     'webpack/hot/only-dev-server',
     'webpack-dev-server/client?http://localhost:3000'
   ],

@@ -1,9 +1,7 @@
 'use strict';
 
-import _ from 'lodash';
-
 import React from 'react';
-import Router, {DefaultRoute, Route, Link, RouteHandler} from 'react-router';
+import Router, {DefaultRoute, Route, RouteHandler} from 'react-router';
 
 (window !== window.top ? window.top : window).React = React;
 import style from './views/pages/styles/shared.scss';
