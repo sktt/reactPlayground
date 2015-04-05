@@ -1,9 +1,8 @@
-'use strict';
 import React from 'react';
 import classNames from 'classnames';
 
 /**
- * A controlled checkbox group.
+ * An uncontrolled checkbox group.
  * @class
  */
 const CheckboxGroup = React.createClass({
