@@ -1,36 +1,18 @@
-'use strict';
-
-var clickOutside = function(){
-
-  var elementClasses = Array.prototype.slice.call(arguments);
-
-  return {
-
-    clickOutsideListener: function (e) {
-      if(this.onClickOutside && !this.clickIsInsideElement(e)){
-        this.onClickOutside(e);
-      }
-    },
-
-    clickIsInsideElement: function(event){
-      if(elementClasses.length){
-        var target = event.target || event.srcElement;
-        return new RegExp(elementClasses.join('|')).test(target.className);
-      }
-      else{
-        return false;
-      }
-    },
-
-    componentDidMount: function () {
-      document.addEventListener('click', this.clickOutsideListener, false);
-    },
-
-    componentWillUnmount: function () {
-      document.removeEventListener('click', this.clickOutsideListener, false);
+/**
+ * Include this mixins in any component that needs to do something
+ * when the user clicks outside. Expects @_onClickOutside to be impemented
+ * in the component. Useful for modals, dropdowns, menus etc
+ */
+ClickOutsideListener = module.exports = {
+  componentDidMount() {
+    window.addEventListener('mousedown', @_checkClick, false)
+  },
+  componentWillUnmount() {
+    window.removeEventListener('mousedown', @_checkClick, false)
+  },
+  _checkClick({target}) {
+    if (!this.getDOMNode().contains(target)) {
+      this.onClickOutside();
     }
-
   }
-};
-
-module.exports = clickOutside;
+}
