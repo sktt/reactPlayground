@@ -5,8 +5,7 @@ var app = module.exports = express();
 
 var indexHtml = require('fs').readFileSync('./client/index.html', {encoding: 'utf8'});
 indexHtml = indexHtml
-  .replace(/\{HEAD\}/,
-    '<script src="http://localhost:8090/webpack-dev-server.js"></script>')
+  .replace(/\{HEAD\}/, '')
   .replace(/\{BODY\}/,
     '<script src="http://localhost:8090/bundle.js"' +
     ' type="text/javascript" charset="utf-8"></script>');
